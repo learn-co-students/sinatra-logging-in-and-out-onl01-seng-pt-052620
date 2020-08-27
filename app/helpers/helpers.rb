@@ -5,10 +5,6 @@ class Helpers
   end
   
   def self.is_logged_in?(session)
-    if session.include?(:user_id)
-      true 
-    else 
-      false
-    end
+    !!session.include?(:user_id)
   end
 end
