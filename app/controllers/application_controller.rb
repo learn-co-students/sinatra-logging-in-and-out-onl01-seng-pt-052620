@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    #binding.pry
+  
     if @user = User.find_by(username: params[:username])
       session[:user_id] = @user.id
       redirect to "/account"
@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-    #binding.pry
+  
     if Helpers.is_logged_in?(session)
       @user = Helpers.current_user(session)
       erb :account
